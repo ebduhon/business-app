@@ -1,0 +1,28 @@
+
+/// Utilities
+@import 'utilities/variables';
+@import 'utilities/functions';
+@import 'utilities/mixins';
+@import 'utilities/placeholders';
+
+/// Vendors
+@import 'vendors/google-fonts';
+@import 'vendors/ngx-toastr';
+@import 'vendors/angular-material';
+
+/// Vendor-extensions
+@import 'vendor-extensions/ngx-toastr';
+@import 'vendor-extensions/angular-material';
+
+/// Base
+@import 'base/base';
+@import 'base/flex';
+@import 'base/reset';
+//@import 'base/typography-ext'; // Material Design Spec Typography, incompatible with Angular Material Typography 
+@import 'base/typography-ext-mat'; // Angular Material Typography compatibility
+
+/// Components
+@import 'components/components';
+
+/// States
+@import 'states/states';

@@ -1,0 +1,12 @@
+
+  <div class="textarea-expanded__label mat-typography">{{ config?.label }}</div>
+  <div 
+    class="textarea-expanded__field mat-typography"
+    contenteditable="true" 
+    #textarea 
+    tabindex="1" 
+    (input)="change($event)"
+    placeholder="Default placeholder"
+    role="textarea">
+  </div>
+  

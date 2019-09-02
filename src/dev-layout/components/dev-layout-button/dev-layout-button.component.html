@@ -1,0 +1,56 @@
+
+<br>
+
+<p>Without directive</p>
+<div class="parent" (click)="fromParent()">
+  <button class="child" (click)="fromChild($event, data)">TEST 1</button>
+</div>
+
+<br>
+
+<p>With directive</p>
+<div class="parent" (click)="fromParent()">
+  <button class="child" (click.stop)="fromChild($event, data)">TEST 2</button>
+</div>
+
+<br>
+
+<p>With EnterStopDirective</p>
+<div class="parent" (keyup)="fromParent()">
+  <button class="child" (keyup.enter-stop)="fromChild($event, data)">ENTER</button>
+</div>
+
+<br>
+
+<p>With EscapeStopDirective</p>
+<div class="parent" (keyup)="fromParent()">
+  <button class="child" (keyup.escape-stop)="fromChild($event, data)">ESCAPE</button>
+</div>
+
+<br>
+
+<p>With LeftArrowStopDirective</p>
+<div class="parent" (keyup)="fromParent()">
+  <button class="child" (keyup.left-arrow-stop)="fromChild($event)">LEFT_ARROW</button>
+</div>
+
+<br>
+
+<p>With UpArrowStopDirective</p>
+<div class="parent" (keyup)="fromParent()">
+  <button class="child" (keyup.up-arrow-stop)="fromChild($event)">UP_ARROW</button>
+</div>
+
+<br>
+
+<p>With RightArrowStopDirective</p>
+<div class="parent" (keyup)="fromParent()">
+  <button class="child" (keyup.right-arrow-stop)="fromChild($event)">RIGHT_ARROW</button>
+</div>
+
+<br>
+
+<p>With DownArrowStopDirective</p>
+<div class="parent" (keyup)="fromParent()">
+  <button class="child" (keyup.down-arrow-stop)="fromChild($event)">DOWN_ARROW</button>
+</div>

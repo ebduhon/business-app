@@ -1,0 +1,27 @@
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: nowrap;
+  
+  
+  
+  
+// }
+
+// .collaborative-text-field {
+//   border-radius: 4px;
+//   background-color: rgba(0, 0, 0, 0.1);
+// }
+
+dev {
+  display: flex;
+}
+
+input {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}

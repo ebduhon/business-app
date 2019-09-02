@@ -1,0 +1,14 @@
+
+<button mat-button (click)="loadUserFirebaseIdentity()">LOAD USER FIREBASE IDENTITY</button>
+
+<div *ngIf="userFirebaseIdentity$ | async as userFirebaseIdentity">
+  <div *ngIf="userFirebaseIdentity.loading">Loading userFirebaseIdentity...</div>
+  <h2>User</h2>
+  {{ userFirebaseIdentity | json }}
+</div>
+
+<!-- TODO: input property bindings for [errorCode]="errorCode$ | async", [errorMessage]="errorMessage$ | async", [loading]="loading$ | async", [pending]="pending$ | async" -->
+<user-profile-form
+  (submitted)="onSubmit($event)">
+</user-profile-form>
+

@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  
+  align-items: center;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.user-presence-indicator {
+  display: inline-flex;
+  align-items: center;
+  font-size: 18px;
+  transition: color 500ms ease-in;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+//green 500: rgb(76, 175, 80)
+//green A700: rgb(0, 200, 83)
+.user-presence-indicator.online {
+  color: #4caf50
+}
+
+.user-presence-indicator.offline {
+  color: #000000
+}

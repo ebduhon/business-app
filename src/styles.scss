@@ -1,0 +1,36 @@
+
+@import "./styles/global";
+
+.bg-theme {
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 1), rgba(31, 73, 127, 1));
+  background: -moz-linear-gradient(rgba(255, 255, 255, 1), rgba(31, 73, 127, 1));
+  background: -o-linear-gradient(rgba(255, 255, 255, 1), rgba(31, 73, 127, 1));
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(31, 73, 127, 1));
+}
+
+// cr palette
+// review: rgb(31, 73, 127)
+// review: rgb(50, 117, 203)
+.cr-blue {
+  background-color: #1f497f;
+}
+.cr-blue-1 {
+  background-color: #132c4c;
+}
+.cr-blue-2 {
+  background-color: #516e94;
+}
+.cr-blue-3 {
+  background-color: #6f97cb;
+}
+.cr-white-1 {
+  background-color: #f5f5f5;
+}
+.cr-white-2 {
+  background-color: #fafafa;
+}
+
+.no-scroll {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}

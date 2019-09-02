@@ -1,0 +1,239 @@
+
+<div class="layout-sidenav-area">
+  
+  <ng-container *ngIf="showHeader && !coverHeader">
+    <!--Status bar -->
+    <status-bar-harness *ngIf="(statusBar$ | async)?.activated" [@statusBarHarnessAnimation]></status-bar-harness>
+    
+    <!--App bar -->
+    <app-bar (toggleActivated)="toggleSidenav()">
+      <app-bar-menu></app-bar-menu>
+    </app-bar>
+    
+    <!--Secondary toolbar -->
+    <secondary-toolbar *ngIf="secondaryToolbarIsActivated$ && secondaryToolbarIsVisible$ | async">
+      <ng-container *ngIf="(tabnav$ | async)?.activated && (tabnav$ | async)?.visible">
+        <ng-container tabnavAnchor [config]="tabnav$ | async" (activate)="logActivate($event)"></ng-container>
+      </ng-container>
+    </secondary-toolbar>
+    
+    <!--Progress bar -->
+    <progress-bar [@fadeInOut] *ngIf="progressBarIsActivated$ && progressBarIsVisible$ | async"></progress-bar>
+  </ng-container>
+  
+  <mat-sidenav-container>
+    
+    <mat-sidenav [opened]="sidenavIsOpened$ | async" [mode]="sidenavMode$ | async" [disableClose]="true" [fixedInViewport]="sidenavIsFixed$ | async" [fixedTopGap]="sidenavIsFixedTopGap$ | async" [fixedBottomGap]="sidenavIsFixedBottomGap$ | async">
+      
+      <sidenav-toolbar></sidenav-toolbar>
+      
+      <mat-nav-list>
+        <nav-item (activate)="closeSidenav()" routerLink="/home" icon="home" hint="Home">
+          HOME
+        </nav-item>
+        
+        <nav-item (activate)="closeSidenav()" routerLink="/" icon="" hint="Service offerings">
+          SERVICES
+        </nav-item>
+        
+        <nav-item (activate)="closeSidenav()" routerLink="/" icon="" hint="Contact us">
+          CONTACT US
+        </nav-item>
+        
+        <nav-item (activate)="closeSidenav()" routerLink="/sign-up" icon="" hint="Sign up">
+          SIGN UP
+        </nav-item>
+        
+        <nav-item (activate)="closeSidenav()" routerLink="/sign-in" icon="" hint="Sign in">
+          SIGN IN
+        </nav-item>
+        
+        <nav-item (activate)="logout()" icon="exit_to_app" hint="Sign out of the application">
+          Sign Out
+        </nav-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    
+    
+    
+    <mat-sidenav-content class="bg-theme">
+      
+      <ng-container *ngIf="showHeader && coverHeader">
+        <!--Status bar -->
+        <status-bar-harness *ngIf="(statusBar$ | async)?.activated" [@statusBarHarnessAnimation]></status-bar-harness>
+        
+        <!--App bar -->
+        <app-bar (openMenu)="openSidenav()">
+          <app-bar-menu></app-bar-menu>
+        </app-bar>
+        
+        <!--Secondary toolbar -->
+        <secondary-toolbar *ngIf="secondaryToolbarIsActivated$ && secondaryToolbarIsVisible$ | async">
+          <ng-container *ngIf="(tabnav$ | async)?.activated && (tabnav$ | async)?.visible">
+            <ng-container tabnavAnchor [config]="tabnav$ | async" (activate)="logActivate($event)"></ng-container>
+          </ng-container>
+        </secondary-toolbar>
+        
+        <!--Progress bar -->
+        <progress-bar [@fadeInOut] *ngIf="progressBarIsActivated$ && progressBarIsVisible$ | async"></progress-bar>
+      </ng-container>
+      
+      <!--Content canvas -->
+      <content-canvas>
+        <router-outlet></router-outlet>
+      </content-canvas>
+      
+      <!--<div class="layout-filler-content" *ngFor="let c of fillerContent">Filler Content</div>-->
+      
+      <!-- TODO: review ngModel and async pipe, in conjunction with ngrx/store to unwrap sidenavIsCovered$ -->
+      <!--<mat-checkbox [(ngModel)]="coverHeader">Sidenav covers header/footer</mat-checkbox>-->
+      
+      <br>
+  
+      <!-- development -->
+      <button mat-button (click)="showConnectivity()">SHOW CONNECTIVITY</button>
+      <button mat-button (click)="hideConnectivity()">HIDE CONNECTIVITY</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="simulateConnected()">SIMULATE CONNECTED</button>
+      <button mat-button (click)="simulateDisconnected()">SIMULATE DISCONNECTED</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="showProgressBar()">SHOW PROGRESS BAR</button>
+      <button mat-button (click)="hideProgressBar()">HIDE PROGRESS BAR</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="showProgressSpinner()">SHOW PROGRESS SPINNER</button>
+      <button mat-button (click)="hideProgressSpinner()">HIDE PROGRESS SPINNER</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="activateSecondaryToolbar()">ACTIVATE SECONDARY TOOLBAR</button>
+      <button mat-button (click)="deactivateSecondaryToolbar()">DEACTIVATE SECONDARY TOOLBAR</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="showSecondaryToolbar()">SHOW SECONDARY TOOLBAR</button>
+      <button mat-button (click)="hideSecondaryToolbar()">HIDE SECONDARY TOOLBAR</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="toggleSidenav()">TOGGLE SIDENAV</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="activateStatusBar()">ACTIVATE STATUS BAR</button>
+      <button mat-button (click)="deactivateStatusBar()">DEACTIVATE STATUS BAR</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="showStatusBar()">SHOW STATUS BAR</button>
+      <button mat-button (click)="hideStatusBar()">HIDE STATUS BAR</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="createTabnav()">CREATE TABNAV [DIRECTIVE]</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="activateTabnav()">ACTIVATE TABNAV</button>
+      <button mat-button (click)="deactivateTabnav()">DEACTIVATE TABNAV</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="showTabnav()">SHOW TABNAV</button>
+      <button mat-button (click)="hideTabnav()">HIDE TABNAV</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="activateUserPresence()">ACTIVATE USER PRESENCE</button>
+      <button mat-button (click)="deactivateUserPresence()">DEACTIVATE USER PRESENCE</button>
+      
+      <br>
+      
+      <!-- development -->
+      <button mat-button (click)="simulateOnline()">SIMULATE ONLINE</button>
+      <button mat-button (click)="simulateAway()">SIMULATE AWAY</button>
+      <button mat-button (click)="simulateOffline()">SIMULATE OFFLINE</button>
+      
+      <br>
+      
+      <!--development-->
+      
+      <br>
+      
+      <button mat-raised-button routerLink="/dev-nav">/dev-nav</button>
+      
+      <br>
+      <br>
+    
+      <button mat-raised-button routerLink="/home">home</button>
+      <button mat-raised-button routerLink="/home-page">home-page</button>
+      <button mat-raised-button routerLink="/sign-up">sign-up</button>
+      
+      <br>
+      <br>
+    
+      <button mat-raised-button routerLink="../secure/dashboard">../secure/dashboard</button>
+      <button mat-raised-button routerLink="/secure/dashboard">/secure/dashboard</button>
+      <button mat-raised-button routerLink="/secure/user-profile">/secure/user-profile</button>
+      
+      <br>
+      <br>
+      
+      <button mat-raised-button routerLink="/secure/community-right">/secure/community-right</button>
+      <button mat-raised-button [routerLink]="['/secure/community-right/ebduhon']">/secure/community-right/ebduhon</button>
+      <button mat-raised-button [routerLink]="['/secure/dashboard', { outlets: { secondary: ['settings'] }}]">/secure/dashboard/(secondary:settings)</button>
+      
+      <br>
+      <br>
+      
+      <!--development-->
+      <abridge-source-harness></abridge-source-harness>
+      
+      <br>
+      <br>
+      
+      <!-- development -->
+      <abridge-target-harness></abridge-target-harness>
+      
+      <br>
+      <br>
+      
+      
+      <!-- Progress spinner -->
+      <progress-spinner *ngIf="progressSpinnerIsActivated$ && progressSpinnerIsVisible$ | async"></progress-spinner>
+      
+      <!-- Loading spinner -->
+      <loading-spinner *ngIf="loadingSpinnerIsActivated$ && loadingSpinnerIsVisible$ | async"></loading-spinner>
+      
+      
+      <ng-container *ngIf="showFooter && coverHeader">
+        <!--Bottom bar -->
+        <bottom-bar></bottom-bar>
+      </ng-container>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  <ng-container *ngIf="showFooter && !coverHeader">
+    <!--Bottom bar -->
+    <bottom-bar></bottom-bar>
+  </ng-container>
+  
+</div>

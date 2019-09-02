@@ -1,0 +1,8 @@
+
+<mat-icon
+  class="user-presence-indicator"
+  aria-hidden="true"
+  [@userPresenceState]="presence"
+  (@userPresenceState.start)="logUserPresenceAnimation($event)"
+  (@userPresenceState.done)="logUserPresenceAnimation($event)">lens
+</mat-icon>

@@ -1,0 +1,13 @@
+
+<nav mat-tab-nav-bar disableRipple="false">
+  
+  <tabnav-tab
+    *ngFor="let tab of config.tabs; trackBy: trackById;"
+    [tab]="tab">
+    {{ tab.label.toUpperCase() }}
+  </tabnav-tab>
+  
+  <!-- TODO: Add Tab -->
+  <!-- TODO: Remove Tab -->
+  
+</nav>

@@ -1,0 +1,64 @@
+
+<mat-card class="sign-in-form">
+  
+  <div class="sign-in-form-header ci-title-2 cr-blue">
+    Sign In
+  </div>
+  
+  <form [formGroup]="rootForm" (ngSubmit)="submit()" class="sign-in-form-content">
+    
+    <mat-form-field class="sign-in-input-container" color="accent">
+      <input matInput formControlName="email" type="text" placeholder="Email">
+    </mat-form-field>
+    
+    <div *ngIf="rootForm.controls['email'].invalid && (rootForm.controls['email'].dirty || rootForm.controls['email'].touched)">
+      <mat-error *ngIf="rootForm.controls['email'].errors?.required">
+        Email is required
+      </mat-error>
+      <!-- TODO review if the below "errors?.minlength" should be camel-case or not as "errors?.minLength" -->
+      <mat-error *ngIf="rootForm.controls['email'].errors?.minlength">
+        Use at least 4 characters
+      </mat-error>
+      <mat-error *ngIf="rootForm.controls['email'].errors?.maxlength">
+        Use 64 characters or fewer
+      </mat-error>
+      <mat-error *ngIf="rootForm.controls['email'].errors?.email">
+        Email is not valid
+      </mat-error>
+    </div>
+    
+    <br>
+    
+    <mat-form-field class="sign-in-input-container" color="accent">
+      <input matInput formControlName="password" type="password" placeholder="Password">
+    </mat-form-field>
+    
+    <div *ngIf="rootForm.controls['password'].invalid && (rootForm.controls['password'].dirty || rootForm.controls['password'].touched)">
+      <mat-error *ngIf="rootForm.controls['password'].errors?.required">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="rootForm.controls['password'].errors?.minlength">
+        Use at least 8 characters
+      </mat-error>
+      <!-- TODO: review maxlength restriction of the password control compare to the firebase auth api limitations -->
+      <mat-error *ngIf="rootForm.controls['password'].errors?.maxlength">
+        Use 64 characters or fewer
+      </mat-error>
+    </div>
+    
+    <br>
+    
+    <!-- TODO: loading, error, errorCode, errorMessage -->
+    
+    <br>
+    
+    <button mat-raised-button class="sign-in-btn cr-blue" [disabled]="rootForm.invalid" type="submit">SIGN IN</button>
+    
+  </form>
+</mat-card>
+<!-- Development -->
+<mat-card>
+  <p>Form: {{ rootForm.value | json }}</p>
+  <p>Form errors: {{ rootForm.errors | json }}</p>
+  <p>Form status: {{ rootForm.status }}</p>
+</mat-card>

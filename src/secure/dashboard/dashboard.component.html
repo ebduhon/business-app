@@ -1,0 +1,51 @@
+<p>
+  dashboard works!
+</p>
+
+<router-outlet name="secondary"></router-outlet>
+
+
+<button mat-raised-button color="accent" [routerLink]="['/secure/user-profile']">EDIT USER PROFILE</button>
+
+<!-- TODO: integrate sign-out-harness with the to layout.module, transclude or multi-slot projection -->
+<!-- exported from auth.module -->
+<sign-out-harness></sign-out-harness>
+<br>
+
+<h2>Connectivity</h2>
+<br>
+<p>isConnected: {{ connectivityIsConnected$ | async }} </p>
+<br>
+
+<br>
+
+<h2>Status</h2>
+<br>
+<p>isAuthenticated: {{ statusIsAuthenticated$ | async }} </p>
+<br>
+
+<br>
+
+<h2>UserFirebaseIdentity</h2>
+<br>
+<p>uid: {{ userFirebaseIdentityUid$ | async }}</p>
+<br>
+<p>displayName: {{ userFirebaseIdentityDisplayName$ | async }}</p>
+<br>
+<p>photoURL: {{ userFirebaseIdentityPhotoURL$ | async }}</p>
+<br>
+<p>email: {{ userFirebaseIdentityEmail$ | async }}</p>
+<br>
+<p>emailVerified: {{ userFirebaseIdentityEmailVerified$ | async }}</p>
+<br>
+<p>phoneNumber: {{ userFirebaseIdentityPhoneNumber$ | async }}</p>
+<br>
+<p>refreshToken: {{ userFirebaseIdentityRefreshToken$ | async }}</p>
+<br>
+<p>isAnonymous: {{ userFirebaseIdentityIsAnonymous$ | async }}</p>
+<br>
+
+<br>
+
+
+

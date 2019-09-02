@@ -1,0 +1,36 @@
+<mat-card tabindex="-1">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>DevNav Dashboard</mat-card-title>
+      <mat-card-subtitle>id: {{ (id$ | async) }}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  
+  <mat-card-content>
+    dev-nav-dashboard works!
+  </mat-card-content>
+  
+  <mat-card-actions align="start">
+    <!--<button mat-button color="accent" (click)="navigateAuxiliary()">NAVIGATE AUXILIARY</button>-->
+    <!--<button mat-button color="accent" (click)="navigateAncillary()">NAVIGATE ANCILLARY</button>-->
+    <button mat-button color="accent" (click)="navigateAuxiliary(1)">NAVIGATE AUXILIARY</button>
+    <button mat-button color="accent" (click)="navigateAncillary(2)">NAVIGATE ANCILLARY</button>
+    <button mat-button color="accent" (click)="closeAuxiliaryOutlet()">CLOSE AUXILIARY OUTLET</button>
+    <button mat-button color="accent" (click)="closeAncillaryOutlet()">CLOSE ANCILLARY OUTLET</button>
+    <!--<button mat-button color="accent" (click)="closeOutlets()">CLOSE OUTLETS</button>-->
+  </mat-card-actions>
+  
+  <mat-card-footer>
+    
+  </mat-card-footer>
+</mat-card>
+
+
+<br>
+<br>
+
+<router-outlet name="auxiliary"></router-outlet>
+<router-outlet name="ancillary"></router-outlet>
+
+<br>
+<br>

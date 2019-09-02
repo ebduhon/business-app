@@ -1,0 +1,37 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each paletee, you can optionally specify a default, lighter, and darker hue.
+$fw-app-primary: mat-palette($mat-grey);
+$fw-app-accent: mat-palette($mat-blue, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$fw-app-warn: mat-palette($mat-red);
+
+// Create a theme object (a Sass map containing all of the palettes).
+$fw-app-theme: mat-light-theme($fw-app-primary, $fw-app-accent, $fw-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($fw-app-theme);
+
+// Angular Material Typography 
+// https://material.angular.io/guide/typography
+// Each typography level has a "font-size", "line-height", and "font-weight"
+// The available typography levels:
+// "display-4", "display-3", "display-2", and "display-1": Large, one-off headers, usually at the top of the page (e.g. a hero header).
+// "headline": Section heading corresponding to the "<h1>" tag.
+// "title": Section heading corresponding to the "<h2>" tag.
+// "subheading-2": Section heading corresponding to the "<h3>" tag.
+// "subheading-1": Section heading corresponding to the "<h4>" tag.
+// "body-1": Base body text.
+// "body-2": Bolder body text.
+// "caption": Smaller body and hint text.
+// "button": Buttons and anchors.
+
+// Create a config with the default typography levels.
+$config: mat-typography-config();
+

@@ -1,0 +1,28 @@
+
+.profile-img__placeholder {
+  border-radius: 100%;
+  background-color: #e0e0e0;
+  display: flex;
+  flex: 0 0 40px;
+  height: 40px;
+  color: rgba(0, 0, 0, 0.54);
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  overflow: hidden;
+  width: 40px;
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+.profile-img {
+  border-radius: 100%;
+  display: flex;
+  flex: 0 0 50px;
+  height: 50px;
+  justify-content: center;
+  overflow: hidden;
+  width: 50px;
+}
+

@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  
+  border: 1px solid blue;
+}
+
+.dashboard-source-content {
+  color: blue;
+}
+
+.primary-source-content {
+  color: blue;
+}
+
+.ancillary-source-content {
+  color: blue;
+}
+
+.auxiliary-source-content {
+  color: blue;
+}

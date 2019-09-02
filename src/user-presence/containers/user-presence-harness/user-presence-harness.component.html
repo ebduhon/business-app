@@ -1,0 +1,7 @@
+
+
+<div class="user-presence-tooltip-host" [matTooltip]="message" [matTooltipPosition]="position">
+  <user-presence-indicator
+    [presence]="(userPresence$ | async)?.presenceType">
+  </user-presence-indicator>
+</div>

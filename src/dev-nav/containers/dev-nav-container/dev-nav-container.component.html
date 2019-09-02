@@ -1,0 +1,29 @@
+<p>
+  dev-nav-container works!
+</p>
+
+<button mat-button 
+  routerLink="./" 
+  routerLinkActive="active" 
+  [routerLinkActiveOptions]="{ exact: true }">Dashboard
+</button>
+
+<button mat-button routerLink="./accounts" routerLinkActive="active">Manage Accounts</button>
+<button mat-button routerLink="./users" routerLinkActive="active">Manage Users</button>
+
+<br>
+<br>
+
+<button mat-button (click)="navigateAuxiliaryOutlet(1)">NAVIGATE AUXILIARY OUTLET</button>
+<button mat-button (click)="navigateAncillaryOutlet(1)">NAVIGATE ANCILLARY OUTLET</button>
+<button mat-button (click)="closeAuxiliaryOutlet()">CLOSE AUXILIARY OUTLET</button>
+<button mat-button (click)="closeAncillaryOutlet()">CLOSE ANCILLARY OUTLET</button>
+
+<br>
+<br>
+
+<!--<div [@routerAnimations]="prepareRouteTransition(outlet)">-->
+<!--  <router-outlet #outlet="outlet"></router-outlet>-->
+<!--</div>-->
+
+<router-outlet></router-outlet>

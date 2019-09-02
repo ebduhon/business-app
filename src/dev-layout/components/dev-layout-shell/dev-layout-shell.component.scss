@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  // justify-content: flex-start;
+  // align-items: stretch;
+  // align-content: stretch;
+  
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  
+  margin: 4px;
+  padding: 4px;
+}

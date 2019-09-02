@@ -1,0 +1,6 @@
+
+<div class="status-bar" *ngIf="(statusBar$ | async)?.visible" [@statusBarAnimation]>
+  <!--<connectivity-harness [@fadeInOut] *ngIf="connectivityIsActivated$ && connectivityIsVisible$ | async"></connectivity-harness>-->
+  <user-presence-harness [@fadeInOut] *ngIf="userPresenceIsActivated$ && userPresenceIsVisible$ | async"></user-presence-harness>
+</div>
+

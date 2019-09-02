@@ -1,0 +1,80 @@
+<mat-card *ngIf="userEntry">
+  <mat-card-title>User Entry Preview</mat-card-title>
+  <mat-card-content>
+    <!--<div> {{ userEntry | json }} </div>-->
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="userEntry">
+  <mat-card-title>User Entry</mat-card-title>
+  <mat-card-content>
+    
+  <form [formGroup]="userEntryForm">
+    
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" (stateChanges)="logStateChanges($event)" (change)="saveUserEntryChanges()">
+    </mat-form-field>
+    <div *ngIf="userEntryForm.controls['email'].invalid && (userEntryForm.controls['email'].dirty || userEntryForm.controls['email'].touched)">
+      <mat-error *ngIf="userEntryForm.controls['email'].errors?.required">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="userEntryForm.controls['email'].errors?.minlength">
+        Use at least 4 characters
+      </mat-error>
+      <mat-error *ngIf="userEntryForm.controls['email'].errors?.maxlength">
+        Use 64 characters or fewer
+      </mat-error>
+      <mat-error *ngIf="userEntryForm.controls['email'].errors?.email">
+        Email is not valid
+      </mat-error>
+    </div>
+    
+    <mat-form-field>
+      <input matInput placeholder="First name" formControlName="firstName" (stateChanges)="logStateChanges($event)" (change)="saveUserEntryChanges()">
+    </mat-form-field>
+    <div *ngIf="userEntryForm.controls['firstName'].invalid && (userEntryForm.controls['firstName'].dirty || userEntryForm.controls['firstName'].touched)">
+      <mat-error *ngIf="userEntryForm.controls['firstName'].errors?.required">
+        First name is required
+      </mat-error>
+    </div>
+    
+    <mat-form-field>
+      <input matInput placeholder="Last name" formControlName="lastName" (stateChanges)="logStateChanges($event)" (change)="saveUserEntryChanges()">
+    </mat-form-field>
+    <div *ngIf="userEntryForm.controls['lastName'].invalid && (userEntryForm.controls['lastName'].dirty || userEntryForm.controls['lastName'].touched)">
+      <mat-error *ngIf="userEntryForm.controls['lastName'].errors?.required">
+        Last name is required
+      </mat-error>
+    </div>
+
+    
+  </form>
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="saveUserEntryChanges()">SAVE</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>New User Entry</mat-card-title>
+  <mat-card-content>
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="startNewUserEntry()" *ngIf="!UserEntry">Start New User Entry</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="userEntry">
+  <br>Dirty: {{ userEntryForm.dirty | json }}
+  <br>Touched: {{ userEntryForm.touched | json }}
+  <br>Valid: {{ userEntryForm.valid | json }}
+  <br>Value: {{ userEntryForm.value | json }}
+</mat-card>
+
+<br>
+
+<mat-card>
+  <button mat-raised-button (click)="onSendConfirmationEmail()">SEND CONFIRMATION EMAIL</button>
+</mat-card>

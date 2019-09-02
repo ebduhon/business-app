@@ -1,0 +1,12 @@
+<p>
+  organization-container works!
+</p>
+
+<organization-harness></organization-harness>
+
+<button (click)="activateOnboarding()">Activate Onboarding</button>
+<button (click)="deactivateOnboarding()">Deactivate Onboarding</button>
+
+<div>onboarding$: ({{ onboarding$ | async | json }})? </div>
+<div>onboardingIsActivated$: {{ onboardingIsActivated$ | async | json }} </div>
+<div>onboardingIsVisible$: {{ onboardingIsVisible$ | async | json }} </div>

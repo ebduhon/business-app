@@ -1,0 +1,45 @@
+
+<mat-card>
+  <mat-card-title>
+    Dev Reactive Form
+  </mat-card-title>
+  <form [formGroup]="rootForm" (ngSubmit)="onSubmit()">
+    
+    <mat-form-field>
+      <input matInput formControlName="collaborativeText">
+    </mat-form-field>
+    
+    <br> 
+    
+    <mat-form-field>
+      <collaborative-text-input placeholder="Collaborative placeholder" required></collaborative-text-input>
+    </mat-form-field>
+    
+    <br>
+    
+    <textarea-expanded formControlName="query" [config]="config"></textarea-expanded>
+    <!--<collaborative-text-input formControlName="query" [config]="config"></collaborative-text-input>-->
+    
+    <br>
+    
+    <password-field formControlName="password"></password-field>
+    
+    <br>
+    
+    <password-field formControlName="identityPassword"></password-field>
+    
+    <br>
+    
+    <mat-card-actions>
+    
+      <mat-slide-toggle formControlName="activated" [color]="activatedColor" [checked]="isActivated" (change)="toggleIsActivated($event)">{{ rootForm.get('activated').value ? 'Deactivate Query' : 'Activate Query' }}</mat-slide-toggle>
+
+      <button mat-button type="submit">SUBMIT</button>
+    </mat-card-actions>
+
+  </form>
+</mat-card>
+<mat-card>
+  <p>Form: {{ rootForm.value | json }}</p>
+</mat-card>
+

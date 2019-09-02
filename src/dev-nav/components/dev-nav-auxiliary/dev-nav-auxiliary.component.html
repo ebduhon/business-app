@@ -1,0 +1,28 @@
+<mat-card tabindex="-1">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>DevNav</mat-card-title>
+      <mat-card-subtitle>Auxiliary</mat-card-subtitle>
+      <img mat-card-sm-image>
+    </mat-card-title-group>
+    
+    <mat-card-title>auxiliaryId: </mat-card-title>
+    <mat-card-subtitle> {{ (auxiliaryId$ | async) }} </mat-card-subtitle>
+    <img mat-card-avatar>
+    
+  </mat-card-header>
+  
+  <mat-card-content>
+    dev-nav-auxiliary works!
+  </mat-card-content>
+  
+  <img mat-card-image>
+  
+  <mat-card-actions align="end">
+    <button mat-raised-button (click)="closeAuxiliaryOutlet()">CLOSE AUXILIARY OUTLET</button>
+  </mat-card-actions>
+  
+  <mat-card-footer>
+    
+  </mat-card-footer>
+</mat-card>

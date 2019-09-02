@@ -1,0 +1,295 @@
+@import "../vendors/google-fonts";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+$white: #FFFFFF;
+$black: #000000;
+
+@mixin primary-text-color($color-value) {
+    @if lightness($color-value) < 50% {
+        color: transparentize($black, .13);
+    } @else {
+        color: transparentize($white, 0);
+    }
+}
+@mixin secondary-text-color($color-value) {
+    @if lightness($color-value) < 50% {
+        color: transparentize($black, .46);
+    } @else {
+        color: transparentize($white, .3);
+    }
+}
+@mixin tertiary-text-color($color-value) {
+    @if lightness($color-value) < 50% {
+        color: transparentize($black, .62);
+    } @else {
+        color: transparentize($white, .5);
+    }
+}
+
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin font-mixin($font-size, $leading-size, $kerning-size, $font-margin, $mobile-font-size){
+    font-size: $font-size+0px;
+    font-size: ($font-size/10)+0rem;
+    line-height: $leading-size+0px;
+    line-height: ($leading-size/10)+0rem;
+    letter-spacing: $kerning-size+0px;
+    letter-spacing: ($kerning-size/10)+0rem;
+    margin: 0 0 $font-margin/2+0px 0;
+    margin-bottom: ($font-margin/20)+0rem;
+    @media only screen and (max-width: 960px) {
+	    font-size: $mobile-font-size+0px;
+	    font-size: ($mobile-font-size/10)+0rem;
+	  }
+}
+@mixin font-rendering($font-size-rendering) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    @if $font-size-rendering == 'font-size-base-ten-small' {
+        @extend %font-size-base-ten-small;
+    } @else if $font-size-rendering == 'font-size-base-ten-large' {
+        @extend %font-size-base-ten-large;
+    } @else if $font-size-rendering == 'font-size-base-ten'  {
+        @extend %font-size-base-ten;
+    }
+}
+/// 
+
+$font-size-base-ten: 'font-size-base-ten';
+%#{$font-size-base-ten} { 
+  font-size: 62.5%;
+}
+
+$font-size-base-ten-small: 'font-size-base-ten-small';
+%#{$font-size-base-ten-small} { 
+  font-size: 50%; 
+}
+
+$font-size-base-ten-large: 'font-size-base-ten-large';
+%#{$font-size-base-ten-large} {
+  font-size: 75%;
+}
+
+html {
+  @include font-rendering($font-size-base-ten);
+  @include font("Roboto");
+}
+body {
+  @include font("Roboto");
+}
+
+$font-classes: ('display4', 'display3', 'display2', 'display1', 'display0', 'headline', 'title', 'title-2', 'subheading2', 'subheading1', 'body2', 'body1', 'body-0', 'caption', 'menu', 'label', 'button');
+$font-selector: ();
+@each $font-class in $font-classes {
+  $font-selector: append($font-selector, unquote('.ci-#{$font-class}'), 'comma');
+}
+
+$font-weight-light: 'font-weight-light';
+%#{$font-weight-light} { font-weight: 300; }
+
+$font-weight-regular: 'font-weight-regular';
+%#{$font-weight-regular} { font-weight: 400; }
+
+$font-weight-medium: 'font-weight-medium';
+%#{$font-weight-medium} { font-weight: 500; }
+
+$font-style-normal: 'font-style-normal';
+%#{$font-style-normal} { font-style: normal; }
+
+$text-transform-inherit: 'text-transform-inherit';
+%#{$text-transform-inherit} { text-transform: inherit; }
+
+$text-transform-uppercase: 'text-transform-uppercase';
+%#{$text-transform-uppercase} { text-transform: uppercase; }
+
+@mixin typeset-display4() {
+  @include font-mixin($font-size: 112, $leading-size: 128, $kerning-size: -0.1, $font-margin: 28, $mobile-font-size: 112);
+  @include secondary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-light;
+}
+@mixin typeset-display3() {
+  @include font-mixin($font-size: 56, $leading-size: 84, $kerning-size: -0.05, $font-margin: 28, $mobile-font-size: 56);
+  @include secondary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-display2() {
+  @include font-mixin($font-size: 45, $leading-size: 48, $kerning-size: 0, $font-margin: 28, $mobile-font-size: 45);
+  @include secondary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-display1() {
+  @include font-mixin($font-size: 34, $leading-size: 40, $kerning-size: 0, $font-margin: 28, $mobile-font-size: 34);
+  @include secondary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-display0() {
+  @include font-mixin($font-size: 34, $leading-size: 40, $kerning-size: 0, $font-margin: 0, $mobile-font-size: 34);
+  @include secondary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-headline() {
+  @include font-mixin($font-size: 24, $leading-size: 32, $kerning-size: 0, $font-margin: 20, $mobile-font-size: 24);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-title() {
+  @include font-mixin($font-size: 20, $leading-size: 28, $kerning-size: 0.05, $font-margin: 20, $mobile-font-size: 30);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-medium;
+}
+@mixin typeset-title-2() {
+  @include font-mixin($font-size: 20, $leading-size: 28, $kerning-size: 0.05, $font-margin: 0, $mobile-font-size: 30);
+  @include primary-text-color($color-value: $white);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-medium;
+}
+@mixin typeset-subheading2() {
+  @include font-mixin($font-size: 15, $leading-size: 28, $kerning-size: 0.01, $font-margin: 20, $mobile-font-size: 16);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-subheading1() {
+  @include font-mixin($font-size: 15, $leading-size: 24, $kerning-size: 0.01, $font-margin: 20, $mobile-font-size: 16);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-body2() {
+  @include font-mixin($font-size: 13, $leading-size: 24, $kerning-size: 0.01, $font-margin: 20, $mobile-font-size: 14);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-medium;
+}
+@mixin typeset-body1() {
+  @include font-mixin($font-size: 13, $leading-size: 20, $kerning-size: 0.01, $font-margin: 20, $mobile-font-size: 14);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-body-0() {
+  @include font-mixin($font-size: 13, $leading-size: 20, $kerning-size: 0.01, $font-margin: 0, $mobile-font-size: 14);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-caption() {
+  @include font-mixin($font-size: 12, $leading-size: 20, $kerning-size: 0.02, $font-margin: 20, $mobile-font-size: 12);
+  @include secondary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-menu() {
+  @include font-mixin($font-size: 13, $leading-size: 20, $kerning-size: 0.01, $font-margin: 20, $mobile-font-size: 14);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-regular;
+}
+@mixin typeset-label() {
+  @include font-mixin($font-size: 12, $leading-size: 20, $kerning-size: 0.01, $font-margin: 20, $mobile-font-size: 12);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-inherit;
+  @extend %font-style-normal;
+  @extend %font-weight-light;
+}
+@mixin typeset-button() {
+  @include font-mixin($font-size: 14, $leading-size: 20, $kerning-size: 0.01, $font-margin: 20, $mobile-font-size: 14);
+  @include primary-text-color($color-value: $black);
+  @extend %text-transform-uppercase;
+  @extend %font-style-normal;
+  @extend %font-weight-medium;
+}
+
+.ci-#{nth($font-classes, 1)} {
+  @include typeset-display4();
+}
+.ci-#{nth($font-classes, 2)} {
+  @include typeset-display3();
+}
+.ci-#{nth($font-classes, 3)} {
+  @include typeset-display2();
+}
+.ci-#{nth($font-classes, 4)} {
+  @include typeset-display1();
+}
+.ci-#{nth($font-classes, 5)} {
+  @include typeset-display0();
+}
+.ci-#{nth($font-classes, 6)} {
+  @include typeset-headline();
+}
+.ci-#{nth($font-classes, 7)} {
+  @include typeset-title();
+}
+.ci-#{nth($font-classes, 8)} {
+  @include typeset-title-2();
+}
+.ci-#{nth($font-classes, 9)} {
+  @include typeset-subheading2();
+}
+.ci-#{nth($font-classes, 10)} {
+  @include typeset-subheading1();
+}
+.ci-#{nth($font-classes, 11)} {
+  @include typeset-body2();
+}
+.ci-#{nth($font-classes, 12)} {
+  @include typeset-body1();
+}
+.ci-#{nth($font-classes, 13)} {
+  @include typeset-body-0();
+}
+.ci-#{nth($font-classes, 14)} {
+  @include typeset-caption();
+}
+.ci-#{nth($font-classes, 15)} {
+  @include typeset-menu();
+}
+.ci-#{nth($font-classes, 16)} {
+  @include typeset-label();
+}
+.ci-#{nth($font-classes, 17)} {
+  @include typeset-button();
+}
+
+
+
+

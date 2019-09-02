@@ -1,0 +1,41 @@
+<p>
+  dev-materialized-view works!
+</p>
+
+<br>
+
+<!-- `ng-container` is removed at run time from being rendered in the DOM. It is non-existent at run time. -->
+<ng-container #materializedViewContainer>
+</ng-container>
+
+<br>
+
+<ng-template #materializedViewTemplate>
+  
+  <h3>Materialized View template.</h3>
+  
+  <br>
+  
+  <h6>This is a template. It's not rendered right away. It is rendered after the view is initialized.</h6>
+  
+  <br>
+  
+  <p>
+    <br> This template could be referenced by its local variable
+    <br> #materializedViewTemplate using @ViewChild to query for this
+    <br> local variable in a Service and pass this template by reference to
+    <br> a different component after the view is initialized.
+    <br> Rendering a template involves the creation of a view.
+    <br> A view is rendered HTML.
+    <br> View containers create views.
+    <br> A view can be created dynamically in Angular using view containers.
+    <br> A view container is a location in the DOM that lets you instantiate templates
+    <br> or components inside of it.
+    <br> View containers will keep track of the templates or components for you and
+    <br> make sure change detection works,
+    <br> as well as remove the component or template when it is time to destroy them.
+  </p>
+  
+  <br>
+  
+</ng-template>

@@ -1,0 +1,17 @@
+<p>
+  administration-container works!
+</p>
+
+<button (click)="loadAccounts()">Load Accounts</button>
+
+<br>
+
+<div>
+  <p>accountState: {{ accountState$ | async | json }}</p>
+</div>
+
+<br>
+
+<div *ngFor="let allAccounts of allAccounts$ |async">
+  <p>allAccounts: {{ allAccounts | json }}</p>
+</div>

@@ -1,0 +1,31 @@
+
+/*
+  https://material.io/guidelines/components/dividers.html#dividers-specs
+*/
+
+$white: #FFFFFF;
+$black: #000000;
+
+@mixin divider-color($color-value) {
+    @if lightness($color-value) < 50% {
+        color: transparentize($black, .88);
+    } @else {
+        color: transparentize($white, .88);
+    }
+}
+
+.fw-divider-dark {
+  @include divider-color($black);
+  margin-top: 8px;
+  margin-bottom: 8px;
+  height: 1px;
+  width: 100%;
+}
+
+.fw-divider-light {
+  @include divider-color($white);
+  margin-top: 8px;
+  margin-bottom: 8px;
+  height: 1px;
+  width: 100%;
+}

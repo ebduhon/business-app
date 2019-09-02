@@ -1,0 +1,15 @@
+<p>
+  mock-dev-list works!
+</p>
+
+<br>
+
+<ul class="mock-dev-data-list">
+  <li *ngFor="let mockDevDataItem of mockDevDataList$ | async" routerLinkActive="mock-dev-data-item-active">
+    <a [routerLink]="[mockDevDataItem.id]">
+      <span class="badge">{{ mockDevDataItem.id }}</span> {{ mockDevDataItem.name }}
+    </a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

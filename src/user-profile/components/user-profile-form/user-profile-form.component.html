@@ -1,0 +1,33 @@
+
+<mat-card class="user-profile-form">
+  <div class="user-profile-form-header ci-title-2 cr-blue">
+    User Profile
+  </div>
+  
+  <form [formGroup]="rootForm" (ngSubmit)="submit()" class="user-profile-form-content">
+    
+    <mat-form-field class="user-profile-input-container" color="accent">
+      <input matInput formControlName="displayName" type="text" placeholder="Display name">
+    </mat-form-field>
+    
+    <br>
+    
+    <mat-form-field class="user-profile-input-container" color="accent">
+      <input matInput formControlName="photoURL" type="text" placeholder="Photo URL">
+    </mat-form-field>
+    
+    <br>
+    
+    <button mat-raised-button class="user-profile-btn cr-blue" [disabled]="rootForm.invalid" type="submit">
+      UPDATE PROFILE
+    </button>
+    
+  </form>
+  
+</mat-card>
+<!-- Development -->
+<mat-card>
+  <p>Form: {{ rootForm.value | json }}</p>
+  <p>Form errors: {{ rootForm.errors | json }}</p>
+  <p>Form status: {{ rootForm.status }}</p>
+</mat-card>

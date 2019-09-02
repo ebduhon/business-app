@@ -1,0 +1,29 @@
+<p>
+  membership-container works!
+</p>
+
+<!-- start version 1 -->
+<!--<div *ngFor="let membership of memberships | async">-->
+<!--  <h4>Membership ID: {{ membership.id }}</h4>-->
+  
+<!--  <p>{{ membership.status }}</p>-->
+  
+<!--  <button (click)="updateMembership(membership.id, 'active')">-->
+<!--    Update Status to Active-->
+<!--  </button>-->
+<!--</div>-->
+<!-- end version 1 -->
+
+<div *ngFor="let membership of memberships$ | async">
+  <h4>Membership ID: {{ membership.id }}</h4>
+  <p>Membership Name: {{ membership.name }}</p>
+  <p>Membership Status: {{ membership.status }}</p>
+  
+  <button *ngIf="membership.status === 'inactive'" (click)="updateMembership(membership.id, 'active')">
+    Update Status to Active
+  </button>
+  
+  <button *ngIf="membership.status === 'active'" (click)="updateMembership(membership.id, 'inactive')">
+    Update Status to Inactive
+  </button>
+</div>

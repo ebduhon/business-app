@@ -1,0 +1,7 @@
+<div [formGroup]="rootCollaborativeForm">
+  <input class="collaborativeText" formControlName="collaborativeText">
+</div>
+
+<div>
+    {{ rootCollaborativeForm.value | json }}
+</div>

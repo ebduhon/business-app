@@ -1,0 +1,6 @@
+
+<div class="connectivity-tooltip-host" [matTooltip]="message" [matTooltipPosition]="position">
+  <connectivity-indicator
+    [connectivity]="(connectivity$ | async)?.connected">
+  </connectivity-indicator>
+</div>

@@ -1,0 +1,54 @@
+@import "../vendors/google-fonts";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+$white: #FFFFFF;
+$black: #000000;
+
+@mixin primary-text-color($color-value) {
+    @if lightness($color-value) < 50% {
+        color: transparentize($black, .13);
+    } @else {
+        color: transparentize($white, 0);
+    }
+}
+@mixin secondary-text-color($color-value) {
+    @if lightness($color-value) < 50% {
+        color: transparentize($black, .46);
+    } @else {
+        color: transparentize($white, .3);
+    }
+}
+@mixin tertiary-text-color($color-value) {
+    @if lightness($color-value) < 50% {
+        color: transparentize($black, .62);
+    } @else {
+        color: transparentize($white, .5);
+    }
+}
+
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  @include font("Roboto");
+}
+body {
+  @include font("Roboto");
+}

@@ -1,0 +1,14 @@
+
+<!--  [ngClass]="{'connected': connectivity, 'disconnected': !connectivity}" -->
+<mat-icon
+  class="connectivity-indicator"  
+  aria-hidden="true"
+  [@connectivityState]="connectivity"
+  (@connectivityState.start)="logConnectivityAnimation($event)" 
+  (@connectivityState.done)="logConnectivityAnimation($event)">lens
+</mat-icon>
+    
+    
+    <!-- accessibility screen-reader users -->
+    <!-- <span class="cdk-visually-hidden">connectivity</span> -->
+

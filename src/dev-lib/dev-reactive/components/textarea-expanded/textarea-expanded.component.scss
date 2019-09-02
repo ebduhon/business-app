@@ -1,0 +1,113 @@
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: nowrap;
+  
+  
+//   min-height: 56px;
+//   padding-top: 8px;
+//   padding-bottom: 8px;
+//   padding-left: 16px;
+//   padding-right: 16px;
+  
+//   border: 2px solid black;
+//   border-radius: 4px;
+//   background-color: rgba(0, 0, 0, 0.1);
+  
+  
+//   border-radius: 4px;
+  
+//   transition: border-color 0.2s, background-color 0.2s;
+// }
+
+// .textfield-expanded__label {
+//   font-family: inherit;
+// }
+
+// .textarea-expanded__field {
+//   font-family: inherit;
+//   background: transparent;
+  
+//   border-bottom: 2px solid rgba(33, 33, 33, 0.2);
+  
+//   outline: 0;
+  
+//   transition: border-color 0.2s, background-color 0.2s;
+//   caret-color: #2196f3;
+// }
+
+// .textarea-expanded__field::placeholder {
+//   color: #2196f3;
+// }
+
+
+// css pseudo classes order
+// :link
+// :visited
+// :hover
+// :active
+
+// css combinators
+// descendant selector (space)
+// child selector (>)
+// adjacent sibling selector (+)
+// general sibling selector (~)
+
+.textarea-expanded__field {
+  font-family: inherit;
+  width: 200px;
+  min-height: 56px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  
+  border-bottom: 2px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s, background-color 0.2s;
+  caret-color: #2196f3;
+}
+
+.textarea-expanded__field::placeholder {
+  color: #2196f3;
+}
+
+// .textarea-expanded__field:placeholder ~ .textarea-expanded__label {
+//   font-size: 16px;
+//   cursor: text;
+//   top: 20px;
+// }
+
+// label, .textarea-expanded__field:focus ~ .textarea-expanded__label {
+//   position: absolute;
+//   top: 0;
+//   display: block;
+//   transition: 0.2s;
+//   font-size: 12px;
+//   color: rgba(33, 33, 33, 0.2);
+// }
+
+.textarea-expanded__field:focus ~ .textarea-expanded__label {
+  color: #2196f3;
+}
+
+.textarea-expanded__field:hover {
+  border-bottom: 2px solid #2196f3;
+}
+
+.textarea-expanded__field:focus {
+  border-bottom: 2px solid #2196f3;
+}
+
+.textarea-expanded__label {
+  
+}
+
+div.disabled {
+  cursor: not-allowed;
+  border-bottom: 0px solid rgba(33, 33, 33, 0.2);
+  background-color: rgba(33, 33, 33, 0.2);
+  pointer-events: none;
+}

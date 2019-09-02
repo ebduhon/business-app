@@ -1,0 +1,80 @@
+
+<mat-form-field>
+  <mat-select placeholder="Field-type List" (change)="onSelect($event)">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let fieldType of fieldTypeList" [value]="fieldType.value">
+      {{ fieldType.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+<mat-card>
+  <mat-list *ngIf="fieldTypeListValueData$ | async as fieldTypeListData;">
+    
+
+    
+    <!--<ng-container *ngFor="let data of fieldTypeListData">-->
+    <!--  <mat-list-item *ngFor="let config of data">-->
+    <!--  {{ config | json }}-->
+    <!--  </mat-list-item>-->
+    <!--</ng-container>-->
+    
+    <mat-list-item *ngFor="let data of fieldTypeListData">
+      {{ data | json }}
+    </mat-list-item>
+    
+    <mat-divider></mat-divider>
+    
+  </mat-list>
+</mat-card>
+
+<br>
+
+<div *ngIf="items$ | async; let items; else loading">
+  <ul>
+    <li *ngFor="let item of items">
+      {{ item.payload.val().text }}
+      <code>{{ item.payload.key }}</code>
+    </li>
+  </ul>
+  <div *ngIf="items.length === 0">No results, try clearing filters</div>
+</div>
+<ng-template #loading>Loading&hellip;</ng-template>
+<div>
+  <h4>Filter by size</h4>
+  <button mat-button (click)="filterBy('small')">Small</button>
+  <button mat-button (click)="filterBy('medium')">Medium</button>
+  <button mat-button (click)="filterBy('large')">Large</button>
+  <button mat-button (click)="filterBy('x-large')">Extra Large</button>
+  <button mat-button (click)="filterBy(null)" *ngIf="this.size$.getValue()">
+    <em>clear filter</em>
+  </button>
+</div>
+
+<br>
+
+<form [formGroup]="rootForm">
+  <mat-form-field>
+    <mat-select placeholder="Filter" (change)="onFilterSelected($event)" formControlName="filterField">
+      <!--<mat-option *ngIf="this.size$.getValue()" (click)="clearFilter()">CLEAR</mat-option>-->
+      <mat-option *ngFor="let filterType of filterTypeList" [value]="filterType.value">
+        {{ filterType.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <button mat-icon-button color="warn" (click)="clearFilter()" *ngIf="this.size$.getValue()">
+    <mat-icon>cancel</mat-icon>
+  </button>
+</form>
+
+
+
+<br>
+
+<mat-card>
+  <p>Form: {{ rootForm.value | json }}</p>
+</mat-card>
+

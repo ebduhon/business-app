@@ -1,0 +1,8 @@
+
+<mat-sidenav [opened]="open" [mode]="currentMode" [ngClass]="currentClasses" [disableClose]="true" [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
+  <ng-content select="sidenav-toolbar"></ng-content>
+  <mat-nav-list>
+    <ng-content select="nav-item"></ng-content>
+  </mat-nav-list>
+</mat-sidenav>
+
